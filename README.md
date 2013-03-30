@@ -2,7 +2,7 @@
 
 Keep an inventory of your properties, with an automatic versioning feature, to maintain a history of changes.
 
-Check [this post](www.apertoire.net/vaultee) for more details.
+Check [this post](http://www.apertoire.net/vaultee) for more details.
 
 ## Dependencies
 
