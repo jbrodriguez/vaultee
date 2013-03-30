@@ -1,0 +1,1 @@
+vertx run src/vaultee_server.js -cp "classes:lib/postgresql-9.1-902.jdbc4.jar:lib/jbcrypt-0.3m.jar:lib/joda-time-2.1.jar:lib/jackson-databind-2.1.1.jar:lib/jackson-core-2.1.1.jar:lib/jackson-annotations-2.1.1.jar:lib/jsoup-1.7.2.jar"

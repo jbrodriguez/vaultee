@@ -1,0 +1,44 @@
+<project name="vaultee" default="compile-core" basedir=".">
+
+  <description>
+    Build script for vaultee
+  </description>
+
+  <!-- set global properties for this build -->
+  <property name="target" value="classes"/>
+  <property name="core-jar-file" value="vaultee-core.jar"/>
+  <property name="version-number" value="0.0.1"/>
+  <property name="java-src-root" value="."/>  
+  <property name="core-lib" value="lib"/>
+
+
+  <path id="core-lib-classpath">
+    <fileset dir="${core-lib}">
+      <include name="*.jar"/>
+    </fileset>
+    <pathelement location="/Users/kayak/dev/vertx/lib/vertx-core-1.3.0.final.jar" />
+    <pathelement location="/Users/kayak/dev/vertx/lib/vertx-platform-1.3.0.final.jar" />
+    <pathelement location="/Users/kayak/dev/vertx/lib/vertx-lang-java.1.3.0.jar" />
+    <pathelement location="/Users/kayak/dev/vertx/lib/vertx-lang-jruby.1.3.0.jar" />
+    <pathelement location="/Users/kayak/dev/vertx/lib/vertx-lang-rhino.1.3.0.jar" />
+    <pathelement location="/Users/kayak/dev/vertx/lib/rhino-1.7R4.jar" />
+    <pathelement location="/Users/kayak/dev/vertx/lib/netty-3.5.8.Final.jar" />
+    <pathelement location="/Users/kayak/dev/vertx/lib/jackson-core-asl-1.9.4.jar" />
+    <pathelement location="/Users/kayak/dev/vertx/lib/jackson-mapper-asl-1.9.4.jar" />
+    <pathelement location="/Users/kayak/dev/vertx/lib/netty-3.5.8.Final.jar" />
+  </path>  
+
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+  </target>  
+
+  <target name="compile-core" depends="init" description="compile the source for the core">
+      <mkdir dir="${target}"/>
+      <javac srcdir="${java-src-root}" destdir="${target}" classpathref="core-lib-classpath" debug="on"
+           includeantruntime="false" target="1.7" source="1.7">
+      <include name="src/net/apertoire/vaultee/*.java"/>
+    </javac>
+  </target>  
+
+</project>

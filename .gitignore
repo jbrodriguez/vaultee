@@ -1,0 +1,10 @@
+logs
+dist
+.idea
+.DS_Store
+*sublime*
+.classpath
+*.class
+classes
+build
+lib
