@@ -106,7 +106,7 @@ public class Server extends BusModBase implements Handler<HttpServerRequest> {
                     public void handle(Message<JsonObject> reply) {
                       if (getMandatoryString("status", reply).equals("ok")) {
                         req.response.headers().put("Set-Cookie", "vaultee_sessionid=" + getMandatoryString("sessionID", reply));
-                        req.response.headers().put("Location", "http://blackbeard.apertoire.org:9000/home.html");
+                        req.response.headers().put("Location", "/home.html");
                         req.response.statusCode = 302;
                         req.response.end();
                       }
