@@ -4,7 +4,5 @@ dist
 .DS_Store
 *sublime*
 .classpath
-*.class
-classes
 build
-lib
+src
