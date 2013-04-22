@@ -1,8 +1,4 @@
-logs
-dist
-.idea
 .DS_Store
 *sublime*
-.classpath
-build
-src
+target
+environment

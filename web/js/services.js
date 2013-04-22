@@ -4,8 +4,8 @@
 // Demonstrate how to register services
 // In this case it is a simple value service.
 angular.module('vaultee.services', []).
-	value('shortversion', '0.4').
-	value('longversion', '0.4-20130126.103').
+	value('shortversion', '0.5.0').
+	value('longversion', '0.5.0-20130421.146').
 	service('uuid', function() {
 	    this.get = function() {
 	        return 'xxxxxxxx'.replace(/[xy]/g, function (c) {

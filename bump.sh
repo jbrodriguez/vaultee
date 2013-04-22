@@ -26,9 +26,10 @@ if [ -f VERSION ]; then
 
     V_MAJOR=${BASE_LIST[0]}
     V_MINOR=${BASE_LIST[1]}
+    V_PATCH=${BASE_LIST[2]}
     echo "Current version : $BASE_STRING"
     V_MINOR=$((V_MINOR + 1))
-    SUGGESTED_VERSION="$V_MAJOR.$V_MINOR"
+    SUGGESTED_VERSION="$V_MAJOR.$V_MINOR.$V_PATCH"
     read -p "Enter a version number [$SUGGESTED_VERSION]: " INPUT_STRING
     if [ "$INPUT_STRING" = "" ]; then
         INPUT_STRING=$SUGGESTED_VERSION
@@ -39,10 +40,16 @@ if [ -f VERSION ]; then
     longversion="$shortversion-$BASE_DATE.$BASE_COMMITS"
 
     BASE_TRANSFORM=`sed "s/value('shortversion'\, '\(.*\)'/value('shortversion', '$shortversion'/" web/js/services.js | sed "s/value('longversion'\, '\(.*\)'/value('longversion', '$longversion'/"`
+    BASE_POM=`sed "s/<version>\(.*\)<\/version>/<version>$shortversion<\/version>/" pom.xml`
 
     # $BASE_SHORT > ./web/js/tmpservices.js
     echo "$BASE_TRANSFORM" > web/js/tmpservices.js
     mv web/js/tmpservices.js web/js/services.js
+
+    # echo "$BASE_POM" > tmppom.xml
+    # mv tmppom.xml pom.xml
+
+    echo "$shortversion" > VERSION
 else
     echo "Could not find a VERSION file"
     read -p "Do you want to create a version file and start from scratch? [y]" RESPONSE
